@@ -591,12 +591,41 @@
                 you have no way of knowing when the intent Lifecyle is complete.
 
             </div>
-
             <div class="step slide" data-x="0" data-y="4000" data-z="0" data-rotate-y="0" style="">
                 <h4>How Does It Work?</h4>
                 <br><br>
                 Service App Security<BR><BR>
-                The service app may need to redirect to a login page, and the login page may lose visibility to the requested data.
+            </div>
+            <div class="step slide" data-x="1200" data-y="4000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Service App Security<BR><BR>
+                Big security piece is "window.intent"
+                <ul>
+                    <li>This gets set when the Sevice App delivered the request from the Client App</li>
+                    <li>Heavy CORS restrictions</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="2400" data-y="4000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Service App Security<BR><BR>
+                Big security piece is "window.intent"
+                <ul>
+                    <li>This gets set when the Sevice App delivered the request from the Client App</li>
+                    <li>Heavy CORS restrictions</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="3600" data-y="4000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Service App Security<BR><BR>
+                Example:
+                <ul style="font-size: 25px;">
+                    <li>example.com/service -> redirect -> example.com/process (OK)</li>
+                    <li>example.com/service -> redirect -> <b style="color:red;">login</b>.example.com/process (NO)</li>
+                    <li>example.com/service -> redirect -> example.com/process (OK)</li>
+                </ul>
             </div>
 
             <div class="step" data-x="-1500" data-y="8000" data-z="6500" data-rotate-z="30" data-rotate-y="-20" data-rotate-x="-45">
