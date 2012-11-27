@@ -1,16 +1,31 @@
 <!doctype html>
 <html>
     <head>
-        <title>I Can Haz C</title>
+        <title>Web Intents - RWX</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="author" content="Aaron Frost" />
-        <meta name="author" content="Steven Olson" />
         <link href="css/impress.css" rel="stylesheet" />
         <script type="text/javascript" src='js/jquery-1.8.2.min.js'></script>
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
         <style type="text/css">
             .text30{
                 font-size: 30px;
+            }
+            .slide{
+                background-image: url(img/webintents.jpg);
+                background-repeat: no-repeat;
+                background-position: bottom right;
+            }
+            .filer{
+                position:absolute;
+                top:-150px;
+                padding-left:100px;
+            }
+            ul{
+                padding: 50px 0px 0px 50px;
+            }
+            ul>li{
+                margin-bottom:20px;
             }
         </style>
     </head>
@@ -19,1419 +34,574 @@
 		    Your browser doesn't support impress.js.  Try Chrome or Safari.
 		</p>
 		<div id="impress">
-			<div id="title" class="step" data-x="0" data-y="0" data-z="0" style="">
-			    <h1>I Can Haz C</h1>
-			    <h3>using C & C++ in the browser</h3>
-			    <h5>By Aaron Frost &amp; Steven Douglas Olson</h5>
-			</div>
-            <div class="step invisible" data-x="0" data-y="-10" data-z="-100" data-scale=".02">
-                <div style="background-image: url(img/codecat.jpg);
-                            height: 500px;
-                            width: 360px;
-                            position: absolute;
-                            top: -140px;
-                            left: 30%;
-                            z-index: -1;
-                            opacity: 0.8;">
-                </div>
-            </div>
-            <!--Add the title page again, so that it will show slide 1 again-->
-            <div class="step invisible" data-x="0" data-y="0" data-z="0" style="">
-                <h1>I Can Haz C</h1>
-                <h3>using C & C++ in the browser</h3>
-                <h5>By Aaron Frost &amp; Steven Douglas Olson</h5>
-            </div>
-            <div class="step" data-x="-500" data-y="0" data-z="600"  data-rotate-y="75">
-				<h2>Intro</h2>
-			</div>
-			<div class="step" data-x="-550" data-y="100" data-z="500" data-rotate-y="75">
-				<h4>Aaron Frost</h4>
-			</div>
-			<div class="step" data-x="-550" data-y="200" data-z="500" data-rotate-y="75">
-				<h4>Steven Olson</h4>
-			</div>
+			<div id="title" class="step slide" data-x="0" data-y="0" data-z="0" style="">
 
-            <div class="step" data-x="0" data-y="1000" data-z="-600">
+                <h1>Web Intents</h1>
+			    <h3>diving into the new spec</h3>
+			    <BR><h5>By Aaron Frost</h5>
+			</div>
+            <div class="step slide" data-x="1200" data-y="0" data-z="0" style="">
+                <h2>Aaron Frost</h2>
+                <ul>
+                    <li>OpenWeb Dev/Evangelist</li>
+                    <li>Husband and Father (2 Girls, 1 Boy)</li>
+                    <li>Author: JS.Next w/ O'Reilly, May 2013</li>
+                    <li>Google Fanboy</li>
+                    <li>Twin: older/better-looking/smarter one</li>
+                    <li>ingress: resistance</li>
+                    <li>Fishing</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="2400" data-y="0" data-z="1200" data-rotate-y="-90" style="">
+                <h3>Today we're talking WebIntents</h3>
+                <BR><BR>
+
+                <h2>What about them?</h2>
+            </div>
+            <div class="step slide" data-x="2400" data-y="0" data-z="2400" data-rotate-y="-90" style="">
                 <h2>Topics</h2>
+                <ul>
+                    <li>What are WebIntents?</li>
+                    <li>What problem are they solving?</li>
+                    <li>How does it work?</li>
+                    <li>Who is using them?</li>
+                    <li>BAD NEWS</li>
+                    <li>Live Demo - tempting the demogods</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="1200" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <BR><BR>
+                <p>
+                    Per the intro on <a href="http://webintents.org" target="_blank" style="color:blue;">webintents.org</a>
+                </p>
+                <BR>
+                <li>Framework for client-side inter-application communication</li>
+                <BR>
+                <li>Framework for client-side service discovery</li>
+            </div>
+            <div class="step slide" data-x="0" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <BR><BR>
+                <li>Framework for client-side inter-application communication</li>
+                <BR>
+                <li>Framework for client-side service discovery</li>
+                <BR>
+                <h3>Please Explain More!!!</h3>
+                <h5>Let's talk about both of those</h5>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side inter-application communication</h5>
+                <BR>
+                <ul>
+                    <li>None of my apps are aware of each other</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-2400" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side inter-application communication</h5>
+                <BR>
+                <ul>
+                    <li>Every site we go to is a virtual silo, from a user perspective</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-3600" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side inter-application communication</h5>
+                <BR>
+                Sites like Twitter
+                <ul>
+                    <li>don't know where i've been</li>
+                    <li>not sure what I going to do when I leave</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-4800" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side inter-application communication</h5>
+                <BR>
+                Currently there is no Client-side Inter-application Communication
+                <ul>
+                    <li>It is intentional</li>
+                    <li>Consider web security</li>
+                    <li>If visiting Walmart.com meant that Walmart.com could read my email...</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-6000" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side inter-application communication</h5>
+                <BR>
+                Why is no CSIAComm a problem?
+                <ul>
+                    <li>You can only interact with who I say you can</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-6000" data-y="0" data-z="3600" data-rotate-y="-180" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side inter-application communication</h5>
+                <BR>
+                Why is no CSIAComm a problem?
+                <ul>
+                    <li>You can only interact with who I say you can</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="0" data-z="2400" data-rotate-y="-270" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side service discovery</h5>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="0" data-z="1200" data-rotate-y="-270" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side service discovery</h5>
+                <br>
+                <ul>
+                    <li>a site doesn't know what other sites I like</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="0" data-z="0" data-rotate-y="-270" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side service discovery</h5>
+                <br>
+                <ul>
+                    <li>no idea if I already have a preferred image editor</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="0" data-z="-1200" data-rotate-y="-270" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h5>client-side service discovery</h5>
+                <br>
+                <ul>
+                    <li>you can only use the services I say you can</li>
+                    <li>&raquo;Facebook Image Cropper</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="0" data-z="-2400" data-rotate-y="-270" style="">
+                <h4>What are WebIntents?</h4>
+                <br>
+                <h3>Summary</h3>
+                <br>
+
+                <p>The web of today is a giant, manually-hand-stitched web of integration</p>
+                <br><br>
+                <p>WebIntents can make it all easier!!!</p>
+            </div>
+            <div class="step slide" data-x="0" data-y="1000" data-z="0" data-rotate-y="-360" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                <h4>Let's discuss</h4>
+                <br>
+            </div>
+            <div class="step slide" data-x="1200" data-y="1000" data-z="0" data-rotate-y="-360" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                <h4>What do we do on the web?</h4>
+                <br>
+                <ul>
+                    <li>Interact Socially</li>
+                    <li>Read</li>
+                    <li><b>SHARE</b> </li>
+                    <li><b>EDIT</b> </li>
+                    <li><b>CONSUME</b> <small>(music, pics, etc)</small> </li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="2400" data-y="1000" data-z="0" data-rotate-y="-360" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h5>Some of this could be easier for the end user</h5>
+                <br>
+            </div>
+            <div class="step slide" data-x="3600" data-y="1000" data-z="0" data-rotate-y="-360" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h5>Some of this could be easier for the end user</h5>
+                <br>
+
+                Example: Share a pic from my webmail inbox
+                <ul>
+                    <li>Download to Desktop</li>
+                    <li>Open 3rd Party Site</li>
+                    <li>Click Open Button</li>
+                    <li>Find the File on Desktop</li>
+                    <li>Submit</li>
+                </ul>
+            </div>
+            <div id="etc" class="step slide" data-x="4800" data-y="1000" data-z="0" data-rotate-y="-360" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h5>Some of this could be easier for the end user</h5>
+                <br>
+                <ul>
+                    <li>Listen to music in my Dropbox folder</li>
+                    <li>Save PDF attachments on an email</li>
+                    <li>Read books from our Safari or O'Reilly account</li>
+                    <li>etc</li>
+                </ul>
+                <br>
+                <h5>This could all be easier for the end users</h5>
+            </div>
+            <div class="step slide" data-x="2400" data-y="1000" data-z="1200" data-rotate-y="-450" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h5>It could be easier for the developers too!</h5>
+                <br>
+            </div>
+            <div class="step slide" data-x="2400" data-y="1000" data-z="2400" data-rotate-y="-450" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h5>It could be easier for the developers too!</h5>
+                <br>
+                As a Site Owner:
+                <ul>
+                    <li>Do we want to add one Share button for each social network?</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="2400" data-y="1000" data-z="3600" data-rotate-y="-450" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h5>It could be easier for the developers too!</h5>
+                <br>
+                As a Site Owner:
+                <ul>
+                    <li>Do we want to manually create a site that OAuths, then loads out pics/music/documents?</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="2400" data-y="1000" data-z="4800" data-rotate-y="-450" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h5>It could be easier for the developers too!</h5>
+                <br>
+                As a Site Owner:
+                <ul>
+                    <li>Do we want to slowly decide each of the sites that we will integrate with?
+                        <ul>
+                            <li>&raquo;What if those sites go down?</li>
+                            <li>&raquo;What if they update?</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="1200" data-y="1000" data-z="3600" data-rotate-y="-540" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                As a Site Owner:
+                <ul>
+                    <li>What if the use could chose what service to save their files to?</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="0" data-y="1000" data-z="3600" data-rotate-y="-540" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                As a Site Owner:
+                <ul>
+                    <li>Chose where they wanted to share my content to?</li>
+                    <li style="font-size:25px;">not restricted to where I have built integration points to</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="1000" data-z="3600" data-rotate-y="-540" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                As a Site Owner:
+                <ul>
+                    <li>What if they could chose a separate image editor?</li>
+                    <li>&raquo;Now we don't have to build an client-side image editor!!!</li>
+                    <li>&raquo;Now we don't have to build a server-side image processing service!!!</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-2400" data-y="1000" data-z="3600" data-rotate-y="-540" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                As a Site Owner:
+                <br><br>
+                Now, with a small amount of code we could do AJAX-less integrations with Picasa for Image Editing
+                <ul>
+                    <li>no maintenence for the image cropper</li>
+                    <li>no storing Picasa OAuth tokens</li>
+                    <li>no server running in between running interference</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-3600" data-y="1000" data-z="3600" data-rotate-y="-540" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                As a Site Owner:
+                <br><br>
+
+                <h3>TOO...MUCH...WINNING!</h3>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="1000" data-z="2400" data-rotate-y="-630" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                To put it another way
+                <br><br>
+                Today user can:
+                <ul>
+                    <li>only do what developers say they can</li>
+                    <li>only interact with what the developers prepared</li>
+                    <li>not easily do something the developer didn't think about</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="1000" data-z="1200" data-rotate-y="-630" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                This needs to change
+                <ul>
+                    <li>I want to store what I want, where I WANT IT</li>
+                    <li>I want to share what I want, where I WANT IT</li>
+                </ul>
+                <br>No more waiting for the developer to build it
+            </div>
+            <div class="step slide" data-x="-1200" data-y="1000" data-z="0" data-rotate-y="-630" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                We already have a great example of an industry facing this exact situation. One part of us has yet to solve it, while the other part has solved it.
+            </div>
+            <div class="step slide invisible" data-x="-1200" data-y="1000" data-z="0" data-rotate-y="-630" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+                We already have a great example of an industry facing this exact situation. One part of us has yet to solve it, while the other part has solved it.
+                <ul>
+                    <li>iOS</li>
+                    <li>Android</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="1000" data-z="-1200" data-rotate-y="-630" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h3>iOS</h3><br>
+                Same as the web currently
+                <ul>
+                    <li>can only share where dev says</li>
+                    <li>can only interact how the dev says</li>
+                    <li>integration with a 3rd party service requires a button to be placed somewhere</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="-1200" data-y="1000" data-z="-2400" data-rotate-y="-630" style="">
+                <h4>What Problem Do They Solve?</h4>
+                <br>
+
+                <h3>Android</h3><br>
+                They have Intents built in
+                <ul>
+                    <li>Want to share a file, fire an intent to share</li>
+                    <li>All apps registered as Sharers will be available to handle that request</li>
+                    <li>&nbsp;&nbsp;&raquo;No interaction from the dev</li>
+                    <li>&nbsp;&nbsp;&raquo;Allowed the user to do what they wanted to</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="0" data-y="2000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+            </div>
+            <div class="step slide" data-x="1200" data-y="2000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Take the integration to the client and away from the server
+                <br><br>
+                take a look at this diagram
+            </div>
+            <div class="step slide" data-x="2400" data-y="2000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                <img src="img/serverway.png" alt="" style="width:90%;">
+            </div>
+            <div class="step slide" data-x="3600" data-y="2000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                <img src="img/clientway.png" alt="" style="width:90%;">
+            </div>
+            <div class="step slide" data-x="4800" data-y="2000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Certain sites <b>register</b> their abilities to do certain things
+            </div>
+            <div class="step slide invisible" data-x="4800" data-y="2000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Certain sites <b>register</b> their abilities to do certain things
+                <br><br>
+                Other sites request of list of sites that have certain abilities
+                <br><br>
+            </div>
+            <div class="step slide invisible" data-x="4800" data-y="2000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Certain sites <b>register</b> their abilities to do certain things
+                <br><br>
+                Other sites request of list of sites that have certain abilities
+                <br><br>
+                The browser shows the user a list of registered sites that have that ability
+                <br><br>
+                The user picks an already installed app, or a list from the Chrome Store (or whatever FF uses)
+            </div>
+            <div class="step slide" data-x="2400" data-y="2000" data-z="1200" data-rotate-y="-90" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                5-Stages in the Lifecyle (no particular order)
+                <ul>
+                    <li>Registration</li>
+                    <li>Invocation</li>
+                    <li>Selection</li>
+                    <li>Delivery</li>
+                    <li>Response</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="2400" data-y="2000" data-z="2400" data-rotate-y="-90" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Registration<BR><BR>
+                How do sites register their abilities?
+                <ul>
+                    <li>Add the 'intent' tag to your page</li>
+                    <li>Register it in their manifest for the Chrome Web Store</li>
+                </ul>
+
+            </div>
+            <div class="step slide" data-x="2400" data-y="2000" data-z="3600" data-rotate-y="-90" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Registration<BR><BR>
+                Once registered, each time the user tries to use your ability, your app appears on their list of Services
+            </div>
+            <div class="step slide" data-x="2400" data-y="2000" data-z="4800" data-rotate-y="-90" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Registration<BR><BR>
+                How to UN-Register?
+                <ul>
+                    <li>Remove the 'intent' tag from your page (<b>implicit</b>)</li>
+                    <li>Remove the 'type' and 'action' from the intent tag (<b>explicit</b>)</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="1200" data-y="2000" data-z="3600" data-rotate-y="-180" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Invocation<BR><BR>
+                Invocation happens when a user initiated action fires off a new Activity with an Intent
+            </div>
+            <div class="step slide" data-x="0" data-y="2000" data-z="3600" data-rotate-y="-180" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Invocation<BR><BR>
+                If the user has a pre-set preference for this intent action, it will go directly to that, or if there
+                was an explicit service provided, the Select window will not appear
+            </div>
+            <div class="step slide" data-x="-1200" data-y="2000" data-z="3600" data-rotate-y="-180" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Invocation<BR><BR>
+                If the developer doesn't provide a type (refers to mime type) or an action, the WI constructor will fail
+            </div>
+            <div class="step slide" data-x="-1200" data-y="2000" data-z="2400" data-rotate-y="-270" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Selection<BR><BR>
+
+            </div>
+            <div class="step slide" data-x="-1200" data-y="2000" data-z="1200" data-rotate-y="-270" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Selection<BR><BR>
+                This is where you decide what Service to use
+                <ul>
+                    <li>a pre-installed one</li>
+                    <li>install a new one</li>
+                </ul>
+
+            </div>
+            <div class="step slide" data-x="-1200" data-y="2000" data-z="0" data-rotate-y="-270" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Selection<BR><BR>
+                I would imagine that browser vendors could monetize this
+            </div>
+            <div class="step slide" data-x="-1200" data-y="2000" data-z="-1200" data-rotate-y="-270" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Selection<BR><BR>
+                Also, sites could make some money here by promoting recommended Services
+            </div>
+            <div class="step slide" data-x="0" data-y="3000" data-z="0" data-rotate-y="-360" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Delivery<BR><BR>
+                This is the handoff from the browser to the Service App
+            </div>
+            <div class="step slide" data-x="1200" data-y="3000" data-z="0" data-rotate-y="-360" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Delivery<BR><BR>
+                Transferable Data - <BR>
+                <small>If your passing a large blog (song or image), rather than copy the data over, we can have Chrome
+                transfer your data to where it goes, making it more efficient</small>
+            </div>
+            <div class="step slide" data-x="2400" data-y="3000" data-z="1200" data-rotate-y="-450" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Response<BR><BR>
+            </div>
+            <div class="step slide" data-x="2400" data-y="3000" data-z="2400" data-rotate-y="-450" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Response<BR><BR>
+                This is when the Service App is done, and it sends a result of some sort back to the Client App
+            </div>
+            <div class="step slide" data-x="2400" data-y="3000" data-z="3600" data-rotate-y="-450" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Response<BR><BR>
+                The client can listen for a response by passing a callback at the time the WebIntent is instantiated
+            </div>
+            <div class="step slide" data-x="2400" data-y="3000" data-z="4800" data-rotate-y="-450" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Response - Error<BR><BR>
+                The client can listen for an Error response by passing an error callback handler when the WebIntent is instantiated
+            </div>
+            <div class="step slide" data-x="2400" data-y="3000" data-z="6000" data-rotate-y="-450" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Response - Error<BR><BR>
+                Several Reasons For An Error
+                <ul>
+                    <li>If the service called postResult twice</li>
+                    <li>Close the Service page before it is done</li>
+                    <li>Click cancel during the Selection stage</li>
+                </ul>
+            </div>
+            <div class="step slide" data-x="2400" data-y="3000" data-z="7200" data-rotate-y="-450" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Response<BR><BR>
+                If you don't pass your postResult and postFailure callback handlers when constructing the WebIntent,
+                you have no way of knowing when the intent Lifecyle is complete.
+
             </div>
 
-            <div  class="step" data-x="0" data-y="1100" data-z="-750">
-                <h4>What is Native Client?</h4>
+            <div class="step slide" data-x="0" data-y="4000" data-z="0" data-rotate-y="0" style="">
+                <h4>How Does It Work?</h4>
+                <br><br>
+                Service App Security<BR><BR>
+                The service app may need to redirect to a login page, and the login page may lose visibility to the requested data.
             </div>
 
-                <div  class="step" data-x="-600" data-y="1130" data-z="-300" data-rotate-y="90">
-                    <h3>Native Client is:</h3>
-                </div>
-                <div  class="step invisible" data-x="-600" data-y="1130" data-z="-300" data-rotate-y="90">
-                    <h3>Native Client is: (high level)</h3>
-                </div>
-
-                    <div class="step invisible" data-x="-400" data-y="1650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:50%;font-size:30px;">
-                                    <h4>First Opinion</h4>
-                                    <li>&nbsp;&nbsp;&nbsp;More resources for the browser</li>
-                                    <li>&nbsp;&nbsp;&nbsp;Webapp need Native performance</li>
-                            </div>
-                            <img src="img/catinbag.jpg" style="float:right;width:40%;"/>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="1650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:50%;font-size:30px;">
-                                <h4>Second Opinion</h4>
-                                <li>&nbsp;&nbsp;&nbsp;Well, we already have C and C++</li>
-                                <li>&nbsp;&nbsp;&nbsp;Lots of people know those langs</li>
-                                <li>&nbsp;&nbsp;&nbsp;Already have libs built</li>
-                            </div>
-                            <img src="img/catinbag.jpg" style="float:right;width:40%;"/>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:50%;">
-                                <h4>Solution</h4>
-                                Let's put C into the browser
-                            </div>
-                            <img src="img/catinbag.jpg" style="float:right;width:40%;"/>
-                    </div>
-
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:75%;">
-                                <h4>The Web Wants Native Performance</h4>
-                            </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:75%;top:0;">
-                                <h4>The Web Wants Native Performance</h4>
-                                Non-game webapps already have native-like performance
-                            </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:75%;top:0;">
-                                <h4>The Web Wants Native Performance</h4>
-                                JS only runs on a single process
-                            </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:75%;top:0;">
-                                <h4>The Web Wants Native Performance</h4>
-                                Web is a no-install platform. Inherently faster than apps that require an install.
-                            </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                            <div style="float:left; position:absolute;width:75%;top:0;">
-                                <h4>The Web Wants Native Performance</h4>
-                                Games are no good (yet)
-                            </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0;">
-                            <h4>What can Native do that the Web can't?</h4>
-                            &nbsp;
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0;">
-                            <h4>What can Native do that the Web can't?</h4>
-                            a lot!!!!
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0;">
-                            <h4>What can Native do that the Web can't?</h4>
-                            Performance
-                        </div>
-                    </div>
-
-                    <div class="step invisible" scale=".02" data-x="-4000" data-y="1650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h4>Native Performance vs JS</h4>
-                        <div style="float:left;position:absolute;width:50%;top:100px;font-size:30px;">
-                            <li>Chad Austin</li>
-                            <li>Technical Director at IMVU</li>
-                            <li>@chadaustin</li>
-                        </div>
-                        <img src="img/chadaustinchart.png" style="float:right;width:60%;"/>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0;">
-                            <h4>What can Native do that the Web can't?</h4>
-                            tons of existing code
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0px;">
-                            <h4>What Can't Native Do?</h4>
-                            &nbsp;
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;top:0;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;It doesn't provide the kind of security that we use on the web</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;top:0;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;It doesn't provide the kind of security that we use on the web</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Native Security assumes you are in control</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;top:0;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;It doesn't provide the kind of security that we use on the web</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Native Security assumes you are in control</div>
-                                <div>&raquo;Has access to all that you have access to</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;top:0;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;It doesn't provide the kind of security that we use on the web</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Native Security assumes you are in control</div>
-                                <div>&raquo;Has access to all that you have access to</div>
-                                <div>&raquo;Any website with Native access could have all your data</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" scale=".01" data-x="-4000" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <img src="img/allurbase.png" alt="All Your Base" style="position:fixed;left:10%;top:-200px;width:80%">
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;top:0;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;It doesn't provide the kind of security that we use on the web</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Native Security assumes you are in control</div>
-                                <div>&raquo;Has access to all that you have access to</div>
-                                <div>&raquo;Any website with Native access could have all your data</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0px;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;Please Install/Run Something</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0px;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;Please Install/Run Something</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Scares People</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-scale=".01" data-x="-550" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h4>What To Chose???</h4>
-                        <img src="img/notavirus.png" alt="What To Chose????" style="width:90%">
-                    </div>
-                    <div class="step invisible" data-scale=".01" data-x="-550" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h4>Next thing you know!!!!</h4>
-                        <img src="img/ie-extensionhell.png" alt="Next thing you know!!!" style="width:90%">
-                    </div>
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0px;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;Please Install/Run Something</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Scares People</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0px;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;Please Install/Run Something</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Scares People</div>
-                                <div>&raquo;Users have no idea what to say</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0px;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;Please Install/Run Something</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Scares People</div>
-                                <div>&raquo;Users have no idea what to say</div>
-                                <div>&raquo;No explanation of what will happen</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-500" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:80%;top:0px;">
-                            <h4>What Can't Native Do?</h4>
-                            <div style="padding-left:25px;color:#778899;font-size: 40px;">&rsaquo;Please Install/Run Something</div>
-                            <div style="padding-left:50px;color:#808080;font-size: 40px;">
-                                <div>&raquo;Scares People</div>
-                                <div>&raquo;Users have no idea what to say</div>
-                                <div>&raquo;No explanation of what will happen</div>
-                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&raquo;Check a Chrome Extension</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-scale=".01" data-x="-550" data-y="1650" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h4>Is Make More Sense?</h4>
-                        <img src="img/chrome%20extension%20install.png" alt="Now I See">
-                    </div>
-
-                <div  class="step invisible" data-x="-600" data-y="1155" data-z="-300" data-rotate-y="90">
-                    <br>
-                    Any questions?
-                </div>
-
-            <!--Explain some high level advantages-->
-            <div  class="step" data-x="0" data-y="1160" data-z="-750">
-                <h4>Why do I want it?</h4>
+            <div class="step" data-x="-1500" data-y="8000" data-z="6500" data-rotate-z="30" data-rotate-y="-20" data-rotate-x="-45">
+                <h4>Thank You!</h4>
             </div>
-
-                <div class="step" data-x="600" data-y="2100" data-z="-300" data-rotate-y="-90">
-                    <h3>Reasons you want Native Client:</h3>
-                </div>
-
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-300" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-200px;">
-                            <h4>Performance</h4>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-300" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-200px;">
-                            <h4>Performance</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native performance in the browser</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-300" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-200px;">
-                            <h4>Performance</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native performance in the browser</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Technically - Native + 5% performance</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Portability</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code once, it runs on Android and Web</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Portability</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code once, it runs on Android and Web</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native calls are taken care of for you, so no platforms conflicts</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Portability</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code once, it runs on Android and Web</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native calls are taken care of for you, so no platforms conflicts</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Star Legends</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-scale="0.01" data-x="500" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <h4>Star Legends</h4>
-                        <img src="img/starlegends.png" alt="Star Legends">
-                    </div>
-
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Portability</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code once, it runs on Android and Web</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native calls are taken care of for you, so no platforms conflicts</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Star Legends</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Portability</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code once, it runs on Android and Web</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native calls are taken care of for you, so no platforms conflicts</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Star Legends</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Reverse of Cordova/Phonegap</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-scale="0.01" data-x="500" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="position:fixed;top:-228px;">
-                            <h4>Cordova/Phonegap</h4>
-                            <div class="text30">Take the Web to Native (more for apps, not games)</div>
-                            <img src="img/phonegap_how_does_it_work.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-scale="0.01" data-x="500" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <h4>Cordova/Phonegap</h4>
-                        <div class="text30">Take the Web to Native (more for apps, not games)</div>
-                        <img src="img/phonegap_how_does_it_work.png" alt="">
-                        <h4>Native Client</h4>
-                        <div class="text30">Take Native to the Web (more for games, not apps)</div>
-                        <img src="img/phonegap_how_does_it_work2.png" alt="">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-375" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Portability</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code once, it runs on Android and Web</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native calls are taken care of for you, so no platforms conflicts</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Star Legends</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Reverse of Cordova/Phonegap</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:60%;float:left;font-size:30px;top:-50px;">
-                            <h4>Native Client Sandbox</h4>
-                        </div>
-                        <img src="img/sandbox.png" alt="" style="width:40%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:60%;float:left;font-size:30px;top:-50px;">
-                            <h4>Native Client Sandbox</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Follows the JavaScript security model</div>
-                        </div>
-                        <img src="img/sandbox.png" alt="" style="width:40%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:60%;float:left;font-size:30px;top:-50px;">
-                            <h4>Native Client Sandbox</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Follows the JavaScript security model</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Proven model with JS and Flash</div>
-                        </div>
-                        <img src="img/sandbox.png" alt="" style="width:40%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:60%;float:left;font-size:30px;top:-50px;">
-                            <h4>Native Client Sandbox</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Follows the JavaScript security model</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Proven model with JS and Flash</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;No Scary Install</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Multiple Layers of Security Validation</div>
-                        </div>
-                        <img src="img/sandbox.png" alt="" style="width:40%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="2650" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:60%;float:left;font-size:30px;top:-50px;">
-                            <h4>Native Client Sandbox</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Follows the JavaScript security model</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Proven model with JS and Flash</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;No Scary Install</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Multiple Layers of Security Validation</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;When you compile to NaCl</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;When the code is loaded</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;When the code is executed</div>
-                        </div>
-                        <img src="img/sandbox.png" alt="" style="width:40%;float:right;">
-                    </div>
-
-                    <div class="step invisible" data-x="600" data-y="2180" data-z="-300" data-rotate-y="-90">
-                        <h2>Any Questions?</h2>
-                    </div>
-
-
-            <!--Explain about Emscripten and LLJS-->
-            <div  class="step" data-x="0" data-y="1220" data-z="-750">
-                <h4>What are my other options?</h4>
-            </div>
-                <div class="step" data-x="-600" data-y="3100" data-z="-300" data-rotate-y="90">
-                    <h3>NaCl Alternatives:</h3>
-                </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Flash/Silverlight</h4>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Flash/Silverlight</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;User must install it first</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Flash/Silverlight</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;User must install it first</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It's on its way out</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Adobe's support for HTML5 grows daily</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Flash/Silverlight</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;User must install it first</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It's on its way out</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Adobe's support for HTML5 grows daily</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;OS Dependencies</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Silverlight for Linux is a joke</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-scale="0.02" data-x="-600" data-y="3650" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h3>Other things that shouldn't happen</h3>
-                        <img src="img/flying%20cat.jpg" alt="" style="margin-top:5%;margin-left:15%;margin-right:15%;">
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Flash/Silverlight</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;User must install it first</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It's on its way out</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Adobe's support for HTML5 grows daily</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;OS Dependencies</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Silverlight for Linux is a joke</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Flash/Silverlight</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;User must install it first</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It's on its way out</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Adobe's support for HTML5 grows daily</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;OS Dependencies</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Silverlight for Linux is a joke</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Mobile Support (Houdini)</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Java</h4>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Java</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native Code running in the browser</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Known issues in the sandbox</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Java</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native Code running in the browser</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Known issues in the sandbox</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Has access to your native system</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Malware is prolific with Java applets and Java webstart</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Java</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native Code running in the browser</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Known issues in the sandbox</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Has access to your native system</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Malware is prolific with Java applets and Java webstart</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;HUGE DEPENDENCY - JVM is a large download</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Java</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native Code running in the browser</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Known issues in the sandbox</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Has access to your native system</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Malware is prolific with Java applets and Java webstart</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;HUGE DEPENDENCY - JVM is a large download</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Different versions of the JVM make graphics processing unreliable</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>ActiveX</h4>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>ActiveX</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Only Exists in IE</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>ActiveX</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Only Exists in IE</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;ActiveX Security Model is extremely weak</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Trusted signature security model</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;No code checks, just a head-nod on the sig</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>ActiveX</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Only Exists in IE</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;ActiveX Security Model is extremely weak</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Trusted signature security model</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;No code checks, just a head-nod on the sig</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;IE, again, this is just bad</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-scale="0.02" data-x="-600" data-y="3650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h4>Every time you build for IE a cat dies!!!</h4>
-                        <img src="img/suicidecat.jpg" alt="Every Time!!!" style="margin-top:10px;margin-left:15%;margin-right:15%;">
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>ActiveX</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Only Exists in IE</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;ActiveX Security Model is extremely weak</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Trusted signature security model</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;No code checks, just a head-nod on the sig</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;IE, again, this is just bad</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Emscripten/Mandreel</h4>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-scale="0.2" data-x="-600" data-y="3650" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h4>Disclaimer!!!</h4>
-                        <img src="img/CatFight.jpg" alt="Disclaimer!!!" style="margin-top:10px;margin-left:15%;margin-right:15%;">
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Emscripten/Mandreel</h4>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Emscripten/Mandreel</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It is still JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You can only get so fast in JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&raquo;possibly not a true statement (see the asm.js project on Github)</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Emscripten/Mandreel</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It is still JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You can only get so fast in JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&raquo;possibly not a true statement (see the asm.js project on Github)</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Remember Chad Austin's findings</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" scale=".02" data-x="-4000" data-y="1650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <h4>Native Performance vs JS</h4>
-                        <div style="float:left;position:absolute;width:50%;top:100px;font-size:30px;">
-                            <li>Chad Austin</li>
-                            <li>Technical Director at IMVU</li>
-                            <li>@chadaustin</li>
-                        </div>
-                        <img src="img/chadaustinchart.png" style="float:right;width:60%;"/>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Emscripten/Mandreel</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It is still JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You can only get so fast in JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&raquo;possibly not a true statement (see the asm.js project on Github)</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Remember Chad Austin's findings</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Emscripten/Mandreel</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It is still JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You can only get so fast in JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&raquo;possibly not a true statement (see the asm.js project on Github)</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Remember Chad Austin's findings</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile from your code, to Emscripten, then to JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Debugging can become problematic</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Emscripten/Mandreel</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;It is still JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You can only get so fast in JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;&raquo;possibly not a true statement (see the asm.js project on Github)</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Remember Chad Austin's findings</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile from your code, to Emscripten, then to JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Debugging can become problematic</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;ASM.JS - A Mozilla project</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;provide a new subset of JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;extremely-optimizable pieces</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;new subset could be targeted by C-to-JS transpilers</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>LLJS - Low Level JavaScript</h4>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>LLJS - Low Level JavaScript</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;a Mozilla project</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>LLJS - Low Level JavaScript</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;a Mozilla project</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;test to see if putting some static typing for low level
-                                operations would allow for C-like functionality straight from JS</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>LLJS - Low Level JavaScript</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;a Mozilla project</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;test to see if putting some static typing for low level
-                                operations would allow for C-like functionality straight from JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;the Spawn of JavaScript and C</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible" data-x="-400" data-y="3650" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>LLJS - Low Level JavaScript</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;a Mozilla project</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;test to see if putting some static typing for low level
-                                operations would allow for C-like functionality straight from JS</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;the Spawn of JavaScript and C</div>
-                            <br><div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;EARLY STAGES - don't expect anything soon</div>
-                        </div>
-                    </div>
-
-                <div class="step invisible" data-x="-600" data-y="3170" data-z="-300" data-rotate-y="90">
-                    <h2>Any Questions?</h2>
-                </div>
-
-            <!--Deeper Dive on the functionality-->
-            <div  class="step" data-x="0" data-y="1280" data-z="-750">
-                <h4>How does it work?</h4>
-            </div>
-
-                <div class="step" data-x="600" data-y="4000" data-z="-300" data-rotate-y="-90">
-                    <h3>Explaining How:</h3>
-                </div>
-
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>
-                                <p>
-                                    Google built pepper, which is an environment for running native code.
-                                    Then they made a way for devs to interface with it, the PPAPI, which stands
-                                    for Pepper Plugin API.
-                                </p><BR>
-                                <p>
-                                    So in our code we include calls to the PPAPI, and then Pepper will make our native
-                                    calls for us.
-                                </p>
-                            </div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Why call it Pepper?</div>
-                            <!--<BR>-->
-                            <!--<div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Internally at Google, Native Client is called NaCl</div>-->
-
-
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Why call it Pepper?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Internally at Google, Native Client is
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;called
-                                <span style="font-size:50px;">NaCl</span>
-                            </div>
-
-
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Why call it Pepper?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Internally at Google, Native Client is
-                                &nbsp;&nbsp;&nbsp;&nbsp;called
-                                <span style="font-size:50px;">NaCl</span>
-                            </div><BR>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Table of Elements:</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Na = Sodium</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Cl = Chlorine</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;NaCl = Sodium-chloride</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Sodium-chloride = SALT</div>
-
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Why call it Pepper?</div>
-                            <BR>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;So they called it Pepper for the &nbsp;&nbsp;&nbsp;&nbsp;"cutesy" effect</div>
-                            <br>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;(audience says "aaahhhhHH!")</div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Why call it Pepper?</div>
-                            <BR>
-                            <div>At least they didn't call it some self-glorifying name, like Netscape did</div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>PPAPI is a newer API than it's predecessor NPAPI (Netscape Plugin API), but they are similar</div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>Why build a new API?</div>
-                            <!--<div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Why call it Pepper?</div>-->
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>Why build a new API?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - ran with elevated privileges</div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>Why build a new API?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - ran with elevated privileges</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - not portable</div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>Why build a new API?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - ran with elevated privileges</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - not portable</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - had some performance issues</div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-450" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-60px;">
-                            <h4>Pepper</h4>
-                            <div>Why build a new API?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - ran with elevated privileges</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - not portable</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - had some performance issues</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;NPAPI - missing some functionality</div>
-                        </div>
-                        <img src="img/pepperspray.png" alt="Sgt Pepperspray" style="width:45%;float:right;">
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:50%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Use the PPAPI for IO. No direct calls to the system.</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Use the PPAPI for IO. No direct calls to the system.</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile your code using the NaCl GCC compiler</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;This gives you a .NEXE file</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Use the PPAPI for IO. No direct calls to the system.</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile your code using the NaCl GCC compiler</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;This gives you a .NEXE file</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You will need one file per processor arch type you support</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Put your .NEXE and a .nmf file on the server, and reference them in HTML</div>
-                            <!--<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;This gives you a .NEXE file</div>-->
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Use the PPAPI for IO. No direct calls to the system.</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile your code using the NaCl GCC compiler</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;This gives you a .NEXE file</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You will need one file per processor arch type you support</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Put your .NEXE and a .nmf file on the server, and reference them in HTML</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Using an 'embed' tag, embed the .nmf file</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-scale="0.01" data-x="600" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <h4>What is the .nmf file?</h4>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Native Manifest File</div>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;JSON file</div>
-                        <img src="img/nativemanifest.png" alt="Native Manifest File">
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Explain PNaCl</div>
-
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Use the PPAPI for IO. No direct calls to the system.</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile your code using the NaCl GCC compiler</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;This gives you a .NEXE file</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You will need one file per processor arch type you support</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Put your .NEXE and a .nmf file on the server, and reference them in HTML</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Using an 'embed' tag, embed the .nmf file</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Use the PPAPI for IO. No direct calls to the system.</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile your code using the NaCl GCC compiler</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;This gives you a .NEXE file</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You will need one file per processor arch type you support</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Put your .NEXE and a .nmf file on the server, and reference them in HTML</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Using an 'embed' tag, embed the .nmf file</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;set the type of the embed tag to "application/x-nacl"</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Use the PPAPI for IO. No direct calls to the system.</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile your code using the NaCl GCC compiler</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;This gives you a .NEXE file</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;You will need one file per processor arch type you support</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Put your .NEXE and a .nmf file on the server, and reference them in HTML</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Using an 'embed' tag, embed the .nmf file</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;set the type of the embed tag to "application/x-nacl"</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;User open the page and the love happens!</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-500" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Basic Steps (summary)</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Write your code in C / C++</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Compile your code in NaCl GCC</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Host your compiled files</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&rsaquo;Chrome users love you</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-550" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>PPAPI</h4>
-                            <div>&raquo;Allows for multiple threads to run</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-550" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>PPAPI</h4>
-                            <div>&raquo;Allows for multiple threads to run</div>
-                            <div>&raquo;Goal to have a Plugin Registry</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-550" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>PPAPI</h4>
-                            <div>&raquo;Allows for multiple threads to run</div>
-                            <div>&raquo;Goal to have a Plugin Registry</div>
-                            <div>&raquo;Mozilla doesn't have any interest in supporting Native Client</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="400" data-y="4550" data-z="-550" data-rotate-x="-90" data-rotate-y="-90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>PPAPI</h4>
-                            <div>&raquo;Allows for multiple threads to run</div>
-                            <div>&raquo;Goal to have a Plugin Registry</div>
-                            <div>&raquo;Mozilla doesn't have any interest in supporting Native Client</div>
-                            <div>
-                                &raquo;Due to what happens during the compilation stage, compiled NaCl code runs 5% slower
-                                than actual native code.
-                            </div>
-                        </div>
-                    </div>
-
-                <div class="step invisible" data-x="600" data-y="4060" data-z="-300" data-rotate-y="-90">
-                    <h2>Any Questions?</h2>
-                </div>
-
-
-
-            <!--Explain the deeper security-->
-            <div  class="step" data-x="0" data-y="1340" data-z="-750">
-                <h4>How does it not violate security?</h4>
-            </div>
-
-                <div class="step" data-x="-600" data-y="5500" data-z="-300" data-rotate-y="90">
-                    <h3>Security Explained:</h3>
-                </div>
-
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Remember the scary window</h4>
-                            <div>&rsaquo;Why was that scary?</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>NaCl-GCC Compiling</h4>
-                            <div>
-                                &rsaquo;Chrome depends on the NaCl-GCC compilation stage, which attempts to prevent
-                                malicious code from every making it to an app
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>NaCl-GCC Compiling</h4>
-                            <div>
-                                &rsaquo;Chrome depends on the NaCl-GCC compilation stage, which attempts to prevent
-                                malicious code from every making it to an app
-                            </div>
-                            <div>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&raquo;Even code compiled by NaCl-GCC will be treated as
-                                untrusted
-                            </div>
-                            <div>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&raquo;No guarantee that compiled code is safe
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox</h4>
-                            <div>
-                                &rsaquo;The Sandbox is where Chrome will ensure that the code is safe, or it will silently fail
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox</h4>
-                            <div>&rsaquo;The Sandbox is where Chrome will ensure that the code is safe, or it will silently fail</div>
-                            <div>&rsaquo;Has the same NaCl Validator that the NaCl-GCC uses</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox</h4>
-                            <div>&rsaquo;The Sandbox is where Chrome will ensure that the code is safe, or it will silently fail</div>
-                            <div>&rsaquo;Has the same NaCl Validator that the NaCl-GCC uses</div>
-                            <h3>This is where the security happens!</h3>
-
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Blacklist certain calls</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Blacklist certain calls</div>
-                            <div>
-                                <img src="img/syscall.png" alt="syscall">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="-50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Blacklist certain calls</div>
-                            <div>
-                                <img src="img/syscall.png" alt="syscall">
-                            </div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;syscall is the gateway to your entire system</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;will be rejected by the NaCl Validator</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Blacklist certain calls</div>
-                            <div>
-                                <img src="img/foof.png" alt="f00f">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Blacklist certain calls</div>
-                            <div>
-                                <img src="img/foof.png" alt="f00f">
-                            </div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;lock process and then execute invalid instruction</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;fails on invalid instruction, but never unlocks the process</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="0" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Blacklist certain calls</div>
-                            <div>
-                                <img src="img/foof.png" alt="f00f">
-                            </div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;lock process and then execute invalid instruction</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;fails on invalid instruction, but never unlocks the process</div>
-                            <BR>
-                            <h4>Not allowed</h4>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;any website could lock your entire system</div>
-                        </div>
-                    </div>
-                    <div class="step invisible" data-x="-400" data-y="6050" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Blacklist certain calls</div>
-
-                            <div>Newer Instructions</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;SSE4 Instruction Set</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;NaCl will simply 'halt' as your system normally would with any
-                                <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unknown instruction</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="50" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Jumps</div>
-                            <BR>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Direct Jumps</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Indirect Jumps</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Direct Jumps</div>
-                            <div>
-                                <img src="img/directjump.png" alt="Direct Jump">
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Direct Jumps</div>
-                            <div>
-                                <img src="img/directjump.png" alt="Direct Jump">
-                            </div>
-                            <div>&rsaquo;the jump leaps back into the middle of the first instruction</div>
-                            <div>
-                                <img src="img/directjump2.png" alt="Direct Jump">
-                            </div>
-                            <div>&raquo;executes a 'syscall' and then a 'jmp . + 4' to return the execute back to normal</div>
-
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Direct Jumps</div>
-                            <div>
-                                <img src="img/directjump.png" alt="Direct Jump">
-                            </div>
-                            <div>&rsaquo;NaCl Validator rejects jumps to the middle of known instructions</div>
-                            <div>&rsaquo;Line#1 is a known instruction, so jumping to the middle of it would be rejected</div>
-
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Indirect Jumps</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Jumping without calling 'jmp'</div>
-                            <div>
-                                <img src="img/indirectjump.png" alt="Indirect Jump">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Indirect Jumps</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Jumping without calling 'jmp'</div>
-                            <div>
-                                <img src="img/indirectjump.png" alt="Indirect Jump">
-                            </div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;jump to unknown location == security hole</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Jumps</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;How to protect against jumps?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;We can't blacklist jumping</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Jumps</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;How to protect against jumps?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;We can't blacklist jumping</div>
-                            <BR>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;ANSWER</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Only allow jumping to the beginning of known instructions</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Allow Jumping while Rejecting Jumping?</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Allow Jumping while Rejecting Jumping?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Compiler needs to bundle code so instructions don't overlap 32 byte sections</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Restrict Jumping to modulus 32 bytes</div>
-                            <BR>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;When jumping to an address, drop the lowest 5 bits</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Allow Jumping while Rejecting Jumping?</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Compile into 32-byte bundles</div>
-                            <div style="padding-left:30px">
-                                <img src="img/32byte.png" alt="32 Bytes">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Allow Jumping while Rejecting Jumping?</div>
-                            <div style="margin-top:50px;">Combination of not allowing jumps into the middle of known instructions</div>
-                            <div>AND</div>
-                            <div>aligning jumpable instructions onto 32-byte bundle edges</div>
-                            <BR>
-                            <div>Allows us to know where the flow of our app is contained</div>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Allow Jumping while Rejecting Jumping?</div>
-                            <BR>
-                            <h3>Problem Solved?</h3>
-                        </div>
-                    </div>
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-150" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Allow Jumping while Rejecting Jumping?</div>
-                            <BR>
-                            <h3>Problem Solved?</h3>
-                            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No!</h3>
-                            <BR>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Self Modifying Code</div>
-                        </div>
-                    </div>
-
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Self Modifying Code</div>
-                            <BR>
-                        </div>
-                    </div>
-
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Self Modifying Code</div>
-                            <BR>
-                            <h5>once code is validated, it is read/exec enabled. no write access.</h5>
-                            <BR>
-                            <h5>once data is validated, it is read/write enabled. no exec access.</h5>
-                        </div>
-                    </div>
-
-                    <div class="step invisible " data-x="-400" data-y="6050" data-z="-100" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                        <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                            <h4>Chrome Sandbox - security</h4>
-                            <div>&rsaquo;Self Modifying Code</div>
-                            <BR>
-                            <h5>once code is validated, it is read/exec enabled. no write access.</h5>
-                            <BR>
-                            <h5>once data is validated, it is read/write enabled. no exec access.</h5>
-                            <BR>
-                            <h5>still have to deal with dynamic libs and JIT code</h5>
-                            <h5>&nbsp;&nbsp;&raquo;this is over my head, the depths of knowledge required to
-                                <BR>&nbsp;&nbsp;&nbsp;&nbsp;prevent an exploit here</h5>
-                        </div>
-                    </div>
-
-                <div class="step invisible" data-x="-400" data-y="5570" data-z="-375" data-rotate-y="90">
-                    <h3>Any Questions?</h3>
-                </div>
-
-
-            <div  class="step" data-x="0" data-y="1400" data-z="-750">
-                <h4>What are the tools?</h4>
-            </div>
-            <div class="step" data-x="-800" data-y="7000" data-z="-300" data-rotate-y="90">
-                <h3>Tools Explained:</h3>
-            </div>
-            <div class="step invisible" data-x="-600" data-y="7550" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                    <h4>Google has equiped you</h4>
-                </div>
-            </div>
-
-            <div class="step invisible" data-x="-600" data-y="7550" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                    <h4>Google has equiped you</h4>
-                    <div>
-                        &rsaquo;Check out the Google NaCl site (http://code.google.com/p/nativeclient/)
-                    </div>
-                </div>
-            </div>
-
-            <div class="step invisible" data-x="-600" data-y="7550" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                    <h4>Google has equiped you</h4>
-                    <div>
-                        &rsaquo;Check out the Google NaCl site (http://code.google.com/p/nativeclient/)
-                    </div>
-                    <div>
-                        &rsaquo;Then the developer site (https://developers.google.com/native-client/)
-                    </div>
-                </div>
-            </div>
-
-            <div class="step invisible" data-x="-600" data-y="7550" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                    <h4>Google has equiped you</h4>
-                    <div>
-                        &rsaquo;Check out the Google NaCl site (http://code.google.com/p/nativeclient/)
-                    </div>
-                    <div>
-                        &rsaquo;Then the developer site (https://developers.google.com/native-client/)
-                    </div>
-                    <div>
-                        &rsaquo;Head to the Tutorials
-                    </div>
-                </div>
-            </div>
-
-            <div class="step invisible" data-x="-600" data-y="7550" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                    <h4>Google has equiped you</h4>
-                    <div>
-                        &rsaquo;Check out the Google NaCl site (http://code.google.com/p/nativeclient/)
-                    </div>
-                    <div>
-                        &rsaquo;Then the developer site (https://developers.google.com/native-client/)
-                    </div>
-                    <div>
-                        &rsaquo;Head to the Tutorials
-                    </div>
-                    <div>
-                        &rsaquo;Get make, python and the NaCl SDK.
-                    </div>
-                </div>
-            </div>
-
-            <div class="step invisible" data-x="-600" data-y="7550" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                    <h4>Google has equiped you</h4>
-                    <div>
-                        &rsaquo;Check out the Google NaCl site (http://code.google.com/p/nativeclient/)
-                    </div>
-                    <div>
-                        &rsaquo;Then the developer site (https://developers.google.com/native-client/)
-                    </div>
-                    <div>
-                        &rsaquo;Head to the Tutorials
-                    </div>
-                    <div>
-                        &rsaquo;Get make, python and the NaCl SDK.
-                    </div>
-                    <div>&rsaquo;from the SDK, start a server (Same origin policy)</div>
-                </div>
-            </div>
-
-            <div class="step invisible" data-x="-600" data-y="7550" data-z="-200" data-rotate-x="90" data-rotate-y="90" data-rotate-z="0" >
-                <div style="float:left; position:absolute;width:100%;font-size:30px;top:-200px;">
-                    <h4>Google has equiped you</h4>
-                    <div>
-                        &rsaquo;Check out the Google NaCl site (http://code.google.com/p/nativeclient/)
-                    </div>
-                    <div>
-                        &rsaquo;Then the developer site (https://developers.google.com/native-client/)
-                    </div>
-                    <div>
-                        &rsaquo;Head to the Tutorials
-                    </div>
-                    <div>
-                        &rsaquo;Get make, python and the NaCl SDK.
-                    </div>
-                    <div>&rsaquo;from the SDK, start a server (Same origin policy)</div>
-                    <div>&rsaquo;Start Chrome and enable the native client (about:flags)</div>
-                </div>
-            </div>
-
-            <div class="step invisible" data-x="0" data-y="1000" data-z="0" data-rotate-y="-20">
-                <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The End</h2>
-            </div>
-
-            <div class="step invisible" data-x="-3500" data-y="3000" data-z="1500" data-rotate-y="-60" data-rotate-x="-45" data-rotate-z="">
-                Thank You!
-            </div>
-
 
 		</div>
     <script type="text/javascript" src="js/impress.js"></script>
